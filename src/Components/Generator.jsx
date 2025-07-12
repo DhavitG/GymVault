@@ -17,11 +17,16 @@ function Header({ index, title, description }) {
   );
 }
 
-function Generator() {
+function Generator({
+  split,
+  setSplit,
+  muscles,
+  setMuscles,
+  goal,
+  setGoal,
+  updateWorkout,
+}) {
   const [showModal, setShowModal] = useState(false);
-  const [split, setSplit] = useState("individual");
-  const [muscles, setMuscles] = useState([]);
-  const [goal, setGoal] = useState("strength_power");
 
   function toggleModal() {
     setShowModal((curr) => !curr);
@@ -40,8 +45,8 @@ function Generator() {
 
     if (muscles.length > 2) return;
 
-    const newMuscles = [...muscles, muscleGroup]
-    setMuscles(newMuscles)
+    const newMuscles = [...muscles, muscleGroup];
+    setMuscles(newMuscles);
 
     if (newMuscles.length === 3) setShowModal(false);
   }
@@ -120,7 +125,7 @@ function Generator() {
         title={"Become Juggernaut"}
         description={"Select your ultimate objective."}
       />
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {Object.keys(SCHEMES).map((scheme, schemeIndex) => {
           return (
             <button
@@ -136,7 +141,7 @@ function Generator() {
           );
         })}
       </div>
-      <Button text={"Formulate"}/>
+      <Button text={"Formulate"} fn={updateWorkout} />
     </SectionWrapper>
   );
 }
