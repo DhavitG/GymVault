@@ -2,8 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow: auto;
 }
 
 span {
@@ -11,7 +19,7 @@ span {
   font-weight: inherit;
 }
 
-.blueShadow{
+.blueShadow {
   box-shadow: 3px 3px 0 0 #60a5fa;
 }
 

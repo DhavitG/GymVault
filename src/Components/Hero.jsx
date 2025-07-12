@@ -18,8 +18,10 @@ export default function Hero() {
         <span className="text-blue-400 font-medium">mass montrosity</span>,
         afflicted with severe body dismorphia, unable to fit through doors.
       </p>
-      <Button text={"Accept & Begin"}/>
+      <Button text={"Accept & Begin"} fn={() => {
+        window.location.href = "#generate"
+      }}/>
     </div>
   );
 }
- 
+  
